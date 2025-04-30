@@ -1,0 +1,43 @@
+name: Python Package Publish
+
+on:
+  push:
+    branches:
+      - indev  # Trigger on push to the 'main' branch
+  pull_request:
+    branches:
+      - indev  # Trigger for PRs targeting the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use latest Ubuntu runner (can also use macos-latest or windows-latest)
+    
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Use the Python version of your choice
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install setuptools wheel twine
+
+      # Step 4: Build the package (source + wheel)
+      - name: Build package
+        run: |
+          python setup.py sdist bdist_wheel
+
+      # Step 5: Upload to PyPI using Twine
+      - name: Upload to PyPI
+        run: |
+          twine upload dist/*
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}

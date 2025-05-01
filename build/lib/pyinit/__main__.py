@@ -8,7 +8,7 @@ import argparse
 init()  # Initialize colorama
 
 # Project version
-VERSION = "0.3"
+VERSION = "0.1.2"
 
 
 def parse_args():

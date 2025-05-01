@@ -5,7 +5,7 @@ this_directory = pathlib.Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="pyinit-dev",
+    name="pyinitpro",
     version="0.1.2",
     py_modules=["pyinit"],
     packages=["pyinit"],
@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "pyinit-dev=pyinit.__main__:main",
+            "pyinitpro=pyinit.__main__:main",
         ],
     },
     author="Martins O Jojolola",

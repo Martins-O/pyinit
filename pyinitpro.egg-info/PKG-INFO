@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
-Name: pyinit-dev
-Version: 0.1
+Name: pyinitpro
+Version: 0.1.2
 Summary: A CLI tool to scaffold Python projects with venv and folder structure
 Home-page: https://github.com/Martins-O/pyinit.git
 Author: Martins O Jojolola
@@ -22,17 +22,17 @@ Dynamic: requires-dist
 Dynamic: requires-python
 Dynamic: summary
 
-Sure! Here’s the updated “How To” guide that includes the new flags and functionalities added to the pyinit CLI tool.
+Sure! Here’s the updated “How To” guide that includes the new flags and functionalities added to the projinit CLI tool.
 
 ⸻
 
-✅ How to Set Up and Use pyinit CLI (Cross-Platform Guide)
+✅ How to Set Up and Use projinit CLI (Cross-Platform Guide)
 
 ⸻
 
 📁 1. Clone the project
 
-git clone https://github.com/Martins-O/pyinit.git
+git clone https://github.com/Martins-O/projinit.git
 
 
 
@@ -58,23 +58,23 @@ Restart your terminal after running pipx ensurepath.
 
 ⸻
 
-🚀 3. Install pyinit using pipx
+🚀 3. Install projinit using pipx
 
-In the terminal, navigate to the root of your pyinit project:
+In the terminal, navigate to the root of your projinit project:
 
-cd pyinit
+cd projinit
 
 pipx install .
 
-✅ This makes the pyinit command available globally.
+✅ This makes the projinit command available globally.
 
 ⸻
 
 ✅ 4. Usage
 
-Now you can run pyinit from anywhere in your terminal:
+Now you can run projinit from anywhere in your terminal:
 
-pyinit
+projinit
 
 It will prompt you to:
 	•	Create a new project or use an existing one:
@@ -94,15 +94,15 @@ It will prompt you to:
 
 Example usage with flags:
 
-pyinit --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
+projinit --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
 
 
 
 ⸻
 
 💡 Notes
-	•	To uninstall pyinit:
+	•	To uninstall projinit:
 
-pipx uninstall pyinit
+pipx uninstall projinit
 
-    •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/pyinit
+    •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/projinit

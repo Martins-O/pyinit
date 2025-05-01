@@ -1,14 +1,14 @@
-Sure! Here’s the updated “How To” guide that includes the new flags and functionalities added to the pyinit CLI tool.
+Sure! Here’s the updated “How To” guide that includes the new flags and functionalities added to the pyinitpro CLI tool.
 
 ⸻
 
-✅ How to Set Up and Use pyinit CLI (Cross-Platform Guide)
+✅ How to Set Up and Use pyinitpro CLI (Cross-Platform Guide)
 
 ⸻
 
 📁 1. Clone the project
 
-git clone https://github.com/Martins-O/pyinit.git
+git clone https://github.com/Martins-O/pyinitpro.git
 
 
 
@@ -34,23 +34,23 @@ Restart your terminal after running pipx ensurepath.
 
 ⸻
 
-🚀 3. Install pyinit using pipx
+🚀 3. Install pyinitpro using pipx
 
-In the terminal, navigate to the root of your pyinit project:
+In the terminal, navigate to the root of your pyinitpro project:
 
-cd pyinit
+cd pyinitpro
 
 pipx install .
 
-✅ This makes the pyinit command available globally.
+✅ This makes the pyinitpro command available globally.
 
 ⸻
 
 ✅ 4. Usage
 
-Now you can run pyinit from anywhere in your terminal:
+Now you can run pyinitpro from anywhere in your terminal:
 
-pyinit
+pyinitpro
 
 It will prompt you to:
 	•	Create a new project or use an existing one:
@@ -70,15 +70,15 @@ It will prompt you to:
 
 Example usage with flags:
 
-pyinit --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
+pyinitpro --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
 
 
 
 ⸻
 
 💡 Notes
-	•	To uninstall pyinit:
+	•	To uninstall pyinitpro:
 
-pipx uninstall pyinit
+pipx uninstall pyinitpro
 
-    •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/pyinit
+    •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/pyinitpro

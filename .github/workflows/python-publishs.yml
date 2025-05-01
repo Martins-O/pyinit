@@ -39,5 +39,5 @@ jobs:
         run: |
           twine upload dist/*
         env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}  # Use your PyPI API token here
+          TWINE_USERNAME: __token__  # Use the literal value "__token__"
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}  # Use the API token secret here

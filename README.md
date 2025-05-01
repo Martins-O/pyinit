@@ -1,70 +1,84 @@
-Here’s a complete “How To” guide to set up and run your pyinit CLI tool on any OS using pipx, with support for virtual environment creation and folder scaffolding.
+Sure! Here’s the updated “How To” guide that includes the new flags and functionalities added to the pyinit CLI tool.
 
 ⸻
 
 ✅ How to Set Up and Use pyinit CLI (Cross-Platform Guide)
 
+⸻
+
 📁 1. Clone the project
 
-```
-https://github.com/Martins-O/pyinit.git
-```
+git clone https://github.com/Martins-O/pyinit.git
+
+
+
 ⸻
 
 🧰 2. Install pipx (if not installed)
 
-> macOS or Linux:
+macOS or Linux:
 
-> ``` brew install pipx ```        # macOS
-> 
-> ```python3 -m pip install --user pipx```
-> 
-> ```pipx ensurepath```
+brew install pipx   # macOS
 
-> Windows (via PowerShell):
+python3 -m pip install --user pipx
 
-> ``` python -m pip install --user pipx ```
-> 
->  ``` pipx ensurepath ```
+pipx ensurepath
 
-> Restart your terminal after pipx ensurepath.
+Windows (via PowerShell):
 
-⸻
+python -m pip install --user pipx
 
-🚀 4. Install pyinit using pipx
+pipx ensurepath
 
-> In the terminal, navigate to the root of your pyinit project:
-
-> ``` cd pyinit ```
-> 
-> ``` pipx install . ```
-
-> ✅ This makes the pyinit command available globally.
+Restart your terminal after running pipx ensurepath.
 
 ⸻
 
-✅ 5. Usage
+🚀 3. Install pyinit using pipx
 
->Now you can run pyinit from anywhere in your terminal:
+In the terminal, navigate to the root of your pyinit project:
 
-> ``` pyinit ```
+cd pyinit
 
-> It will:
->> -	Ask whether to create a new project or use an existing one.
->> -	If new: ask for project name, subfolders, etc.
->> -	If existing: ask for path and set up folders.
->> -	Create a Python virtual environment.
->> -	Display activation instructions.
->> -	(Optionally) auto-open a terminal for you.
+pipx install .
+
+✅ This makes the pyinit command available globally.
+
+⸻
+
+✅ 4. Usage
+
+Now you can run pyinit from anywhere in your terminal:
+
+pyinit
+
+It will prompt you to:
+	•	Create a new project or use an existing one:
+	•	New project: Asks for the project name, subfolders, etc.
+	•	Existing project: Asks for the path and sets up the folders.
+	•	Create a Python virtual environment (optional):
+	•	You can skip this with the --no-venv flag.
+	•	You can specify a Python version with the --python-version flag.
+	•	Add dependencies to requirements.txt:
+	•	Provide a comma-separated list of dependencies via the --dependencies flag.
+	•	If no dependencies are provided, a preconfigured template for requirements.txt will be created.
+	•	Initialize a Git repository (optional):
+	•	You can choose to initialize a Git repo by answering y when prompted.
+	•	If desired, add a remote repository URL with the --git-remote flag.
+	•	Interactive Setup (optional):
+	•	Enable an interactive setup where you will be prompted for custom folder names by using the --interactive flag.
+
+Example usage with flags:
+
+pyinit --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
+
+
 
 ⸻
 
 💡 Notes
->> - To uninstall:
+	•	To uninstall pyinit:
 
-> ``` pipx uninstall pyinit ```
+pipx uninstall pyinit
 
-⸻
-
-Usage Example:
-> ![img.png](img.png)
+    •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/pyinit

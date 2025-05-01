@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pyinit-dev",
-    version="0.1",
+    version="0.1.2",
     py_modules=["pyinit"],
     packages=["pyinit"],
     install_requires=[

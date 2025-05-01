@@ -1,2 +1,2 @@
 [console_scripts]
-pyinit = pyinit.__main__:main
+pyinit-dev = pyinit.__main__:main

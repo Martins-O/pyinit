@@ -9,18 +9,19 @@ init()  # Initialize colorama
 
 # Project version
 VERSION = "0.1.2"
+REQUIRE = "requirements.txt"
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Python Project Initializer")
     parser.add_argument('--no-venv', action='store_true', help='Skip creating virtual environment')
-    parser.add_argument('--version', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinit')
+    parser.add_argument('--version', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
     parser.add_argument('--git-remote', metavar='REMOTE_URL', type=str,
                         help='Add a remote repository URL to the Git repo')
     parser.add_argument('--python-version', metavar='PYTHON_VERSION', type=str,
                         help='Specify Python version for virtual environment')
     parser.add_argument('--dependencies', metavar='DEPENDENCIES', type=str,
-                        help='Comma-separated list of dependencies to add to requirements.txt')
+                        help=f'Comma-separated list of dependencies to add to {REQUIRE}')
     parser.add_argument('--interactive', action='store_true',
                         help='Enable interactive setup for project structure and files')
     return parser.parse_args()
@@ -45,18 +46,18 @@ def create_project_structure(project_path, folders):
 
 
 def create_files(project_path, dependencies=None):
-    (project_path / "requirements.txt").touch()
+    (project_path / REQUIRE).touch()
 
     # Add dependencies to the requirements.txt file if provided
     if dependencies:
         dependencies = [dep.strip() for dep in dependencies.split(',')]
-        with open(project_path / "requirements.txt", "w") as f:
+        with open(project_path / REQUIRE, "w") as f:
             for dep in dependencies:
                 f.write(f"{dep}\n")
         print(Fore.YELLOW + "📄 Added dependencies to requirements.txt." + Style.RESET_ALL)
     else:
         # Provide a preconfigured template for `requirements.txt`
-        with open(project_path / "requirements.txt", "w") as f:
+        with open(project_path / REQUIRE, "w") as f:
             f.write("""# Preconfigured template
 # You can add your dependencies here, e.g.:
 # flask

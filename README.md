@@ -4,43 +4,9 @@ Sure! Here’s the updated “How To” guide that includes the new flags and fu
 
 ✅ How to Set Up and Use pyinitpro CLI (Cross-Platform Guide)
 
-⸻
+🚀 Install pyinitpro using pip
 
-📁 1. Clone the project
-
-git clone https://github.com/Martins-O/pyinitpro.git
-
-
-
-⸻
-
-🧰 2. Install pipx (if not installed)
-
-macOS or Linux:
-
-brew install pipx   # macOS
-
-python3 -m pip install --user pipx
-
-pipx ensurepath
-
-Windows (via PowerShell):
-
-python -m pip install --user pipx
-
-pipx ensurepath
-
-Restart your terminal after running pipx ensurepath.
-
-⸻
-
-🚀 3. Install pyinitpro using pipx
-
-In the terminal, navigate to the root of your pyinitpro project:
-
-cd pyinitpro
-
-pipx install .
+pip install pyinitpro
 
 ✅ This makes the pyinitpro command available globally.
 
@@ -70,7 +36,7 @@ It will prompt you to:
 
 Example usage with flags:
 
-pyinitpro --interactive --dependencies flask,requests --python-version 3.9 --git-remote https://github.com/your-repo.git
+pyinitpro --interactive --dependencies flask,requests --python-version 3.9
 
 
 
@@ -79,6 +45,6 @@ pyinitpro --interactive --dependencies flask,requests --python-version 3.9 --git
 💡 Notes
 	•	To uninstall pyinitpro:
 
-pipx uninstall pyinitpro
+pip uninstall pyinitpro
 
     •	For more information, visit the project's GitHub repository: https://github.com/Martins-O/pyinitpro

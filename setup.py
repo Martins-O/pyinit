@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pyinitpro",
-    version="0.1.2",
+    version="0.1.3",
     py_modules=["pyinit"],
     packages=["pyinit"],
     install_requires=[
@@ -26,7 +26,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.13",
+    python_requires=">=3.1",
     license="MIT",
     keywords="python cli scaffold virtualenv project setup",
 )

@@ -10,6 +10,7 @@ init()  # Initialize colorama
 # Project version
 VERSION = "0.1.2"
 REQUIRE = "requirements.txt"
+FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 
 
 def parse_args():
@@ -42,6 +43,9 @@ def create_project_structure(project_path, folders):
     for folder in folders:
         full_path = project_path / folder
         full_path.mkdir(parents=True, exist_ok=True)
+        if folder.startswith('src/') or folder.startswith('tests/'):
+            init_file = full_path / "__init__.py"
+            init_file.touch()
         print(Fore.CYAN + f"📁 Created: {full_path}" + Style.RESET_ALL)
 
 
@@ -143,7 +147,7 @@ def main():
         create_project_structure(project_path, folders)
     else:
         # Set up default folders if interactive setup is not chosen
-        default_folders = ["src", "tests", "docs"]
+        default_folders = FOLDER
         create_project_structure(project_path, default_folders)
 
     create_files(project_path, dependencies=args.dependencies)

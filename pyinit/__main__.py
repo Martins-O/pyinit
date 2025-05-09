@@ -10,7 +10,7 @@ import importlib.resources
 init()  # Initialize colorama
 
 # Project version
-VERSION = "0.1.7"
+VERSION = "0.1.8"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 

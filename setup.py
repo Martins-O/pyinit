@@ -15,7 +15,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "pyinitpro=pyinitpro.__main__:main",
+            "pyinitpro=pyinit.__main__:main",
         ],
     },
     author="Martins O Jojolola",

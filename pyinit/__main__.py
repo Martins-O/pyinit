@@ -8,7 +8,7 @@ import argparse
 init()  # Initialize colorama
 
 # Project version
-VERSION = "0.1.5"
+VERSION = "0.1.6"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 

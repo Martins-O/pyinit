@@ -3,46 +3,47 @@ name: Python Package Publish
 on:
   push:
     branches:
-      - indev  # Trigger on push to the 'main' branch
+      - indev
   pull_request:
     branches:
-      - indev  # Trigger for PRs targeting the 'main' branch
+      - indev
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use latest Ubuntu runner (can also use macos-latest or windows-latest)
+    runs-on: ubuntu-latest
     
     steps:
-      # Step 1: Checkout repository
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Use the Python version of your choice
+          python-version: '3.8'
 
-      - name: Clean old build artifacts
+      - name: Configure Git (for bumpversion commit and tag)
         run: |
-          rm -rf dist build *.egg-info
-            
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
+      - name: Install tools
         run: |
           pip install --upgrade pip
-          pip install setuptools wheel twine
+          pip install setuptools wheel twine bump2version
 
-      # Step 4: Build the package (source + wheel)
+      - name: Bump version
+        run: bump2version patch  # or 'minor' or 'major'
+
       - name: Build package
-        run: |
-          python setup.py sdist bdist_wheel
+        run: python setup.py sdist bdist_wheel
 
-      # Step 5: Upload to PyPI using Twine
-      - name: Upload to PyPI
-        run: |
-          twine upload dist/*
+      - name: Publish to PyPI
+        run: twine upload dist/*
         env:
-          TWINE_USERNAME: __token__  # Use the literal value "__token__"
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}  # Use the API token secret here
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Push tag and version commit
+        run: |
+          git push origin HEAD:indev
+          git push origin --tags

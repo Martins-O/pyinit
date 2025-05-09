@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pyinitpro",
-    version="0.1.8",
+    version="0.1.9",
     packages=find_packages(),
     include_package_data=True,
     package_data={"pyinit": ["templates/*.tpl"]},

@@ -13,6 +13,18 @@ REQUIRE = "requirements.txt"
 FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 
 
+def load_template(filename):
+    return (Path(__file__).parent / "templates" / filename).read_text()
+
+
+FILES = {
+    'src/config/project_configuration.py': load_template('project_configuration.py.tpl'),
+    'src/utils/data_management.py': load_template('data_management.py.tpl'),
+    'src/config/mailosaur_configuration.py': load_template('mailosaur_configuration.py.tpl'),
+    '.env': load_template('env.tpl'),
+}
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Python Project Initializer")
     parser.add_argument('--no-venv', action='store_true', help='Skip creating virtual environment')
@@ -49,7 +61,7 @@ def create_project_structure(project_path, folders):
         print(Fore.CYAN + f"📁 Created: {full_path}" + Style.RESET_ALL)
 
 
-def create_files(project_path, dependencies=None):
+def create_files(project_path, dependencies=None, files=None):
     (project_path / REQUIRE).touch()
 
     # Add dependencies to the requirements.txt file if provided
@@ -77,8 +89,16 @@ __pycache__/
 .env
 """)
 
-    with open(project_path / "main.py", "w") as f:
-        f.write("""def main():
+    if files:
+        for rel_path, content in files.items():
+            full_path = project_path / rel_path
+            full_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(full_path, "w") as f:
+                f.write(content)
+            print(Fore.CYAN + f"📄 Created: {full_path}" + Style.RESET_ALL)
+    else:
+        with open(project_path / "main.py", "w") as f:
+            f.write("""def main():
     print('Hello, world!')
 
 if __name__ == '__main__':
@@ -150,7 +170,7 @@ def main():
         default_folders = FOLDER
         create_project_structure(project_path, default_folders)
 
-    create_files(project_path, dependencies=args.dependencies)
+    create_files(project_path, dependencies=args.dependencies, files={file: "" for file in FILES})
 
     if not args.no_venv:
         venv_path = create_venv(project_path, python_version=args.python_version)

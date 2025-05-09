@@ -23,6 +23,11 @@ jobs:
         with:
           python-version: '3.8'  # Use the Python version of your choice
 
+      - name: Clean old build artifacts
+        run: |
+          rm -rf dist build *.egg-info
+            
+
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |

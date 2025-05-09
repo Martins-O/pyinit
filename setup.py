@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import pathlib
 
 this_directory = pathlib.Path(__file__).parent
@@ -8,7 +8,9 @@ setup(
     name="pyinitpro",
     version="0.1.5",
     py_modules=["pyinit"],
+    include_package_data=True,
     packages=["pyinit"],
+    package_data={"pyinit": ["templates/*.tpl"]},
     install_requires=[
         "colorama>=0.4.0",
     ],

@@ -8,7 +8,7 @@ import argparse
 init()  # Initialize colorama
 
 # Project version
-VERSION = "0.1.2"
+VERSION = "0.1.5"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 
@@ -28,7 +28,8 @@ FILES = {
 def parse_args():
     parser = argparse.ArgumentParser(description="Python Project Initializer")
     parser.add_argument('--no-venv', action='store_true', help='Skip creating virtual environment')
-    parser.add_argument('--version', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
+    parser.add_argument('-version', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
+    parser.add_argument('--v', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
     parser.add_argument('--git-remote', metavar='REMOTE_URL', type=str,
                         help='Add a remote repository URL to the Git repo')
     parser.add_argument('--python-version', metavar='PYTHON_VERSION', type=str,

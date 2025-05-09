@@ -7,9 +7,8 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 setup(
     name="pyinitpro",
     version="0.1.6",
-    py_modules=["pyinit"],
+    packages=find_packages(),
     include_package_data=True,
-    packages=["pyinit"],
     package_data={"pyinit": ["templates/*.tpl"]},
     install_requires=[
         "colorama>=0.4.0",
@@ -28,7 +27,12 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.1",
+    python_requires=">=3.9",
     license="MIT",
     keywords="python cli scaffold virtualenv project setup",
+    project_urls={
+        "Documentation": "https://github.com/Martins-O/pyinit/wiki",
+        "Source": "https://github.com/Martins-O/pyinit",
+        "Tracker": "https://github.com/Martins-O/pyinit/issues",
+    },
 )

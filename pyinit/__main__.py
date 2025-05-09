@@ -4,6 +4,8 @@ import subprocess
 from pathlib import Path
 from colorama import Fore, Style, init
 import argparse
+import importlib.resources
+
 
 init()  # Initialize colorama
 
@@ -12,9 +14,12 @@ VERSION = "0.1.6"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'src/utils', 'src/config', 'tests']
 
-
 def load_template(filename):
-    return (Path(__file__).parent / "templates" / filename).read_text()
+    try:
+        return importlib.resources.files("pyinit.templates").joinpath(filename).read_text()
+    except Exception as e:
+        print(f"❌ Error loading template '{filename}': {e}")
+        return ""
 
 
 FILES = {
@@ -28,8 +33,6 @@ FILES = {
 def parse_args():
     parser = argparse.ArgumentParser(description="Python Project Initializer")
     parser.add_argument('--no-venv', action='store_true', help='Skip creating virtual environment')
-    parser.add_argument('-version', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
-    parser.add_argument('--v', action='version', version=f'%(prog)s {VERSION}', help='Show the version of pyinitpro')
     parser.add_argument('--git-remote', metavar='REMOTE_URL', type=str,
                         help='Add a remote repository URL to the Git repo')
     parser.add_argument('--python-version', metavar='PYTHON_VERSION', type=str,
@@ -171,7 +174,7 @@ def main():
         default_folders = FOLDER
         create_project_structure(project_path, default_folders)
 
-    create_files(project_path, dependencies=args.dependencies, files={file: "" for file in FILES})
+    create_files(project_path, dependencies=args.dependencies, files=FILES)
 
     if not args.no_venv:
         venv_path = create_venv(project_path, python_version=args.python_version)

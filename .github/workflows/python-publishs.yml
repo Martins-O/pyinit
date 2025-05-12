@@ -43,9 +43,9 @@ jobs:
 
           NEXT_PATCH=$((PATCH + 1))
           NEW_VERSION="$MAJOR.$MINOR.$NEXT_PATCH"
-
           echo "Next version: $NEW_VERSION"
-          bump2version --new-version "$NEW_VERSION" patch --allow-dirty patch
+          
+          bump2version --new-version "$NEW_VERSION" --allow-dirty patch
 
       - name: Build package
         run: python setup.py sdist bdist_wheel

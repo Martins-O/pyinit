@@ -46,6 +46,8 @@ jobs:
           echo "Next version: $NEW_VERSION"
           
           bump2version --new-version "$NEW_VERSION" --allow-dirty patch
+          echo "Next version: $NEW_VERSION"
+
 
       - name: Build package
         run: python setup.py sdist bdist_wheel

@@ -14,21 +14,6 @@ VERSION = "0.1.10"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'tests', 'src/utils', 'src/config']
 
-BUMPVERSION_CFG = """[bumpversion]
-current_version = 0.1.10
-commit = True
-tag = True
-message = "🔖 Release {new_version}"
-tag_name = {new_version}
-
-parse = (?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(?P<suffix>-[a-z]+)?
-serialize =
-    {major}.{minor}.{patch}{suffix}
-
-[bumpversion:file:pyinit/__main__.py]
-search = VERSION = "{current_version}"
-replace = VERSION = "{new_version}"
-"""
 
 def load_template(filename):
     try:
@@ -110,11 +95,6 @@ __pycache__/
 .venv/
 .env
 """)
-
-    # Create .bumpversion.cfg file with the provided config
-    with open(project_path / ".bumpversion.cfg", "w") as f:
-        f.write(BUMPVERSION_CFG)
-    print(Fore.CYAN + f"📄 Created: {project_path / '.bumpversion.cfg'}" + Style.RESET_ALL)
 
     if files:
         for rel_path, content in files.items():

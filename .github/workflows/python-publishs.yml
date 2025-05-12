@@ -60,6 +60,8 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
+          git config --global user.email "github-actions[bot]"
+          git config --global user.name "github-actions[bot]"
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git push origin HEAD
           git push origin --tags

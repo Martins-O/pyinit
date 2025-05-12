@@ -48,6 +48,8 @@ FILES = {
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Python Project Initializer")
+    parser.add_argument('--setup', action='store_true',
+                        help='Run setup in current directory without creating a new project')
     parser.add_argument('--no-venv', action='store_true', help='Skip creating virtual environment')
     parser.add_argument('--git-remote', metavar='REMOTE_URL', type=str,
                         help='Add a remote repository URL to the Git repo')

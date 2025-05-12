@@ -10,7 +10,7 @@ import importlib.resources
 init()  # Initialize colorama
 
 # Project version
-VERSION = "0.1.12"
+VERSION = "0.1.14"
 REQUIRE = "requirements.txt"
 FOLDER = ['src', 'tests', 'src/utils', 'src/config']
 
@@ -160,13 +160,16 @@ def init_git(project_path, remote_url=None):
 def main():
     args = parse_args()
 
-    project_name = input("📝 Enter project name: ").strip()
-    if not project_name:
-        print("❌ Project name cannot be empty.")
-        return
-
-    project_path = Path.cwd() / project_name
-    project_path.mkdir(parents=True, exist_ok=True)
+    if args.setup:
+        project_path = Path.cwd()
+        print(Fore.CYAN + f"🔧 Running setup in: {project_path}" + Style.RESET_ALL)
+    else:
+        project_name = input("📝 Enter project name: ").strip()
+        if not project_name:
+            print("❌ Project name cannot be empty.")
+            return
+        project_path = Path.cwd() / project_name
+        project_path.mkdir(parents=True, exist_ok=True)
 
     if args.interactive:
         print("\n🔧 Interactive setup enabled:")
